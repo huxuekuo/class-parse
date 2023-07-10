@@ -1,5 +1,6 @@
 package org.example.parse.type.constant;
 
+import lombok.Data;
 import org.example.parse.type.U1;
 import org.example.parse.type.U2;
 
@@ -28,5 +29,9 @@ public class CONSTANT_Class_info extends CpInfo {
 
     public void read(ByteBuffer codeBuf) throws Exception {
         this.name_index = new U2(codeBuf.get(), codeBuf.get());
+    }
+
+    public U2 getName_index() {
+        return name_index;
     }
 }
