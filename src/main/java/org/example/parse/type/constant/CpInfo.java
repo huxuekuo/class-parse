@@ -1,6 +1,7 @@
 package org.example.parse.type.constant;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.example.parse.handle.ConstantInfoHandle;
 import org.example.parse.handle.ConstantPoolHandle;
 import org.example.parse.type.U1;
@@ -26,6 +27,7 @@ import org.example.parse.type.U1;
  *
  * </ul>
  */
+@Slf4j
 public abstract class CpInfo implements ConstantInfoHandle {
 
     private U1 tag;

@@ -1,6 +1,5 @@
 package org.example.parse.util;
 
-import org.example.parse.type.U2;
 import org.example.parse.type.constant.CONSTANT_Class_info;
 import org.example.parse.type.constant.CONSTANT_Utf8_info;
 import org.example.parse.type.constant.CpInfo;

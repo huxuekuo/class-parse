@@ -24,6 +24,7 @@ public class ClassFileAnalysis {
         handlers.add(new AccessFlagsHandle());
         handlers.add(new ThisAndSuperClassHandle());
         handlers.add(new InterfaceHandle());
+        handlers.add(new FieldHandle());
 
         // 解析排序
         handlers.sort((Comparator.comparingInt(BaseByteCodeHandler::order)));
