@@ -24,6 +24,9 @@ import org.example.parse.type.U1;
  *     <li><p>CONSTANT_MethodHandle_info tag: 15</p></li>
  *     <li><p>CONSTANT_MethodType_info tag: 16</p></li>
  *     <li><p>CONSTANT_InvokeDynamic_info tag: 18</p></li>
+ *     <li><p>CONSTANT_Dynamic_info tag: 17</p></li>
+ *     <li><p>CONSTANT_Module_info tag: 19</p></li>
+ *     <li><p>CONSTANT_Package_info tag: 20</p></li>
  *
  * </ul>
  */
