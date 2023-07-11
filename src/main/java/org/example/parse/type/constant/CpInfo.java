@@ -88,8 +88,17 @@ public abstract class CpInfo implements ConstantInfoHandle {
             case 16:
                 info = new CONSTANT_MethodType_info(tag);
                 break;
+            case 17:
+                info = new CONSTANT_Dynamic_Info(tag);
+                break;
             case 18:
                 info = new CONSTANT_InvokeDynamic_info(tag);
+                break;
+            case 19:
+                info = new CONSTANT_Module_Info(tag);
+                break;
+            case 20:
+                info = new CONSTANT_Package_Info(tag);
                 break;
             default:
                 throw new Exception("没有找到该TAG=" + tagValue + "对应的常量类型");

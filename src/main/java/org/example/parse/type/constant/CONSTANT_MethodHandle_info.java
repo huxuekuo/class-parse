@@ -1,6 +1,7 @@
 package org.example.parse.type.constant;
 
 import org.example.parse.type.U1;
+import org.example.parse.type.U2;
 
 import java.nio.ByteBuffer;
 
@@ -28,7 +29,7 @@ public class CONSTANT_MethodHandle_info extends CpInfo{
     /**
      * 指向与 reference_kind 类型一直的索引
      */
-    private U1 reference_index;
+    private U2 reference_index;
 
     /**
      * info 字节数组存储的内容和长度由tag值决定
@@ -43,6 +44,6 @@ public class CONSTANT_MethodHandle_info extends CpInfo{
     @Override
     public void read(ByteBuffer codeBuf) throws Exception {
         this.reference_kind = new U1(codeBuf.get());
-        this.reference_index = new U1(codeBuf.get());
+        this.reference_index = new U2(codeBuf.get(),codeBuf.get());
     }
 }

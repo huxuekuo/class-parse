@@ -26,7 +26,9 @@ public class ConstantPoolHandle implements BaseByteCodeHandler {
         classFile.setCpInfo(new CpInfo[length]);
         for (int i = 0; i < length; i++) {
             U1 tag = new U1(codeBuf.get());
-
+            if (tag.toInt().equals(82)) {
+                System.out.println(tag);
+            }
             CpInfo cpInfo = CpInfo.newCpInfo(tag);
             cpInfo.read(codeBuf);
             classFile.getCpInfo()[i] = cpInfo;
