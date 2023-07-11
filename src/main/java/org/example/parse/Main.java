@@ -72,6 +72,7 @@ public class Main {
             }
 
             log.debug(ConstantPoolUtils.getConstantValue(analysis));
+            ConstantPoolUtils.getCode(analysis);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
