@@ -1,5 +1,6 @@
 package org.example.parse.handle;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.parse.type.ClassFile;
 
 import java.nio.ByteBuffer;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Class 文件解析器
  */
+@Slf4j
 public class ClassFileAnalysis {
 
     private final static List<BaseByteCodeHandler> handlers = new ArrayList<>();
@@ -25,6 +27,8 @@ public class ClassFileAnalysis {
         handlers.add(new ThisAndSuperClassHandle());
         handlers.add(new InterfaceHandle());
         handlers.add(new FieldHandle());
+        handlers.add(new MethodHandle());
+        handlers.add(new AttributesHandle());
 
         // 解析排序
         handlers.sort((Comparator.comparingInt(BaseByteCodeHandler::order)));
@@ -36,6 +40,7 @@ public class ClassFileAnalysis {
         for (BaseByteCodeHandler handler : handlers) {
             handler.read(codeBuf, classFile);
         }
+        log.debug("class文件结构解析完成.解析是否正常(剩余未解析字节数:{})", codeBuf.remaining());
         return classFile;
     }
 

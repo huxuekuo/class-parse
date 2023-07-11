@@ -71,7 +71,7 @@ public class ClassFile {
     /**
      * 方法信息
      */
-    private MethodInfo methods;
+    private MethodInfo[] methods;
 
     /**
      * 属性总数

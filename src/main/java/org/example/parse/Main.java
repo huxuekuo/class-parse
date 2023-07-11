@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.parse.handle.ClassFileAnalysis;
 import org.example.parse.type.ClassFile;
 import org.example.parse.type.FieldInfo;
+import org.example.parse.type.MethodInfo;
 import org.example.parse.type.U2;
 import org.example.parse.type.constant.CONSTANT_Class_info;
 import org.example.parse.type.constant.CpInfo;
@@ -58,6 +59,16 @@ public class Main {
                         cpInfo[fields[i].getDescriptorIndex().toInt() - 1].toString(),
                         FieldAccessFlagUtils.toFieldFlagsString(fields[i].getAccessFlags()),
                         fields[i].getAttributesCount().toInt());
+            }
+
+            log.debug("method_count-class文件方法数量:{}", analysis.getMethodCount().toInt());
+            MethodInfo[] methodInfoArray = analysis.getMethods();
+            for (int i = 0; i < methodInfoArray.length; i++) {
+                log.debug("method_info - \n方法名称信息:{},\n类型描述符:{},\n访问权限:{}, \n属性数量:{}",
+                        cpInfo[methodInfoArray[i].getName_index().toInt() - 1].toString(),
+                        cpInfo[methodInfoArray[i].getDescriptor_index().toInt() - 1].toString(),
+                        FieldAccessFlagUtils.toFieldFlagsString(methodInfoArray[i].getAccess_flags()),
+                        methodInfoArray[i].getAttributes_count().toInt());
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
