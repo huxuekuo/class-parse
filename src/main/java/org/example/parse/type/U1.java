@@ -2,8 +2,6 @@ package org.example.parse.type;
 
 import org.example.parse.util.ByteToHexConverterUtil;
 
-import java.nio.ByteBuffer;
-
 public class U1 {
 
     private final byte values;

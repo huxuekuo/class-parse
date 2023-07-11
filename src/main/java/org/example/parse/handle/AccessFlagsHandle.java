@@ -2,7 +2,6 @@ package org.example.parse.handle;
 
 import org.example.parse.type.ClassFile;
 import org.example.parse.type.U2;
-import org.example.parse.util.ClassAccessFlagUtils;
 
 import java.nio.ByteBuffer;
 
