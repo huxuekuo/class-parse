@@ -19,7 +19,7 @@ import java.nio.ByteBuffer;
 public class Main {
     public static void main(String[] args) {
         try {
-            ByteBuffer codeBuf = readFile("/Users/lirui/Desktop/javaproject/aphoto-mall/yc-admin-api/target/classes/com/qiguliuxing/dts/admin/params/ChannelNameParams.class");
+            ByteBuffer codeBuf = readFile("/Users/lirui/Desktop/javaproject/aphoto-mall/yc-admin-api/target/classes/com/qiguliuxing/dts/admin/params/Test.class");
             ClassFile analysis = ClassFileAnalysis.analysis(codeBuf);
             log.debug("magic-魔数:{}", analysis.getMagic().toHexString());
             log.debug("minorVersion-次版本:{}", analysis.getMinorVersion().toInt());
@@ -70,6 +70,8 @@ public class Main {
                         FieldAccessFlagUtils.toFieldFlagsString(methodInfoArray[i].getAccess_flags()),
                         methodInfoArray[i].getAttributes_count().toInt());
             }
+
+            log.debug(ConstantPoolUtils.getConstantValue(analysis));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

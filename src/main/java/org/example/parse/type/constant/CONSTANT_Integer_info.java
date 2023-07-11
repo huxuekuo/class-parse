@@ -1,5 +1,6 @@
 package org.example.parse.type.constant;
 
+import lombok.Data;
 import org.example.parse.type.ClassFile;
 import org.example.parse.type.U1;
 import org.example.parse.type.U4;
@@ -29,5 +30,9 @@ public class CONSTANT_Integer_info extends CpInfo {
     @Override
     public void read(ByteBuffer codeBuf) throws Exception {
         bytes = new U4(codeBuf.get(), codeBuf.get(), codeBuf.get(), codeBuf.get());
+    }
+
+    public U4 getBytes() {
+        return bytes;
     }
 }

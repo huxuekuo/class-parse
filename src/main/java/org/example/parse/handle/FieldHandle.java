@@ -33,6 +33,7 @@ public class FieldHandle implements BaseByteCodeHandler {
                 byte[] aValue = new byte[anInt];
                 codeBuf.get(aValue, 0, aValue.length);
                 aInfo.setInfo(aValue);
+                attributes[integer] = aInfo;
             }
             info.setAttributes(attributes);
             fieldInfos[i] = info;

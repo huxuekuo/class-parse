@@ -1,5 +1,6 @@
 package org.example.parse.type.constant;
 
+import lombok.Data;
 import org.example.parse.type.ClassFile;
 import org.example.parse.type.U1;
 import org.example.parse.type.U2;
@@ -42,5 +43,9 @@ public class CONSTANT_Utf8_info extends CpInfo {
     public String toString() {
         return super.toString().concat(",length=".concat(String.valueOf(length.toInt()))
                 .concat(",str=".concat(new String(bytes, StandardCharsets.UTF_8))));
+    }
+
+    public byte[] getBytes() {
+        return bytes;
     }
 }

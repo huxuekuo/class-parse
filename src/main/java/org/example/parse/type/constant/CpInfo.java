@@ -27,6 +27,7 @@ import org.example.parse.type.U1;
  *
  * </ul>
  */
+@Data
 @Slf4j
 public abstract class CpInfo implements ConstantInfoHandle {
 
