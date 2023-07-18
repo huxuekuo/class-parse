@@ -2,10 +2,7 @@ package org.example.parse;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.parse.handle.ClassFileAnalysis;
-import org.example.parse.type.ClassFile;
-import org.example.parse.type.FieldInfo;
-import org.example.parse.type.MethodInfo;
-import org.example.parse.type.U2;
+import org.example.parse.type.*;
 import org.example.parse.type.constant.CONSTANT_Class_info;
 import org.example.parse.type.constant.CpInfo;
 import org.example.parse.util.ClassAccessFlagUtils;
@@ -17,9 +14,18 @@ import java.nio.ByteBuffer;
 
 @Slf4j
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        ByteBuffer codeBuf = readFile("/Users/lirui/Desktop/class-parse/target/test-classes/org/example/parse/test/User.class");
+        ClassFile analysis = ClassFileAnalysis.analysis(codeBuf);
+        for (CpInfo cpInfo : analysis.getCpInfo()) {
+            System.out.println(cpInfo.toString());
+        }
+        ConstantPoolUtils.getCode(analysis);
+    }
+
+    public static void all() {
         try {
-            ByteBuffer codeBuf = readFile("/Users/lirui/Desktop/javaproject/aphoto-mall/yc-admin-api/target/classes/com/qiguliuxing/dts/admin/params/Test.class");
+            ByteBuffer codeBuf = readFile("/Users/lirui/Desktop/class-parse/target/test-classes/org/example/parse/test/Test.class");
             ClassFile analysis = ClassFileAnalysis.analysis(codeBuf);
             log.debug("magic-魔数:{}", analysis.getMagic().toHexString());
             log.debug("minorVersion-次版本:{}", analysis.getMinorVersion().toInt());
@@ -77,6 +83,7 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+
 
     private static ByteBuffer readFile(String filePath) throws IOException {
 

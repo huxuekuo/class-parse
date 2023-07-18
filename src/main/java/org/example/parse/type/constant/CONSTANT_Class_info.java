@@ -1,6 +1,5 @@
 package org.example.parse.type.constant;
 
-import lombok.Data;
 import org.example.parse.type.U1;
 import org.example.parse.type.U2;
 

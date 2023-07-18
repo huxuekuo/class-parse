@@ -75,8 +75,18 @@ public class ConstantPoolUtils {
                     System.out.println("局部变量表大小：" + code.getMax_locals().toInt());
                     System.out.println("字节码数组长度：" + code.getCode_length().toInt());
                     System.out.println("字节码：");
+                    int param = 0;
                     for (byte b : code.getCode()) {
-                        System.out.print((b & 0xff) + " ");
+                        if (param > 0) {
+                            System.out.print(String.format("   参数:%s   ", new U1(b).toHexString()));
+                            param--;
+                        } else {
+                            System.out.println();
+                            ByteCodeEnum byteCodeEnum = ByteCodeEnum.byByteCode("0x" + new U1(b).toHexString());
+                            System.out.println(String.format("指令: %s, 参数数: %s  注释: %s", byteCodeEnum.getOpCode(), byteCodeEnum.getParamNumber(), byteCodeEnum.getDesc()));
+                            param = byteCodeEnum.getParamNumber();
+                        }
+
                     }
                     System.out.println("\n");
                 }
